@@ -71,7 +71,7 @@ const Card = ({ createdAt, name, avatar, email, address, id }: NewUsers) => {
         </div>
 
         <div className="text-xs text-gray-400 mt-2">
-          Joined: {new Date(createdAt).toLocaleDateString()}
+          Joined: {new Date(createdAt||"No date").toLocaleDateString()}
         </div>
       </div>
 

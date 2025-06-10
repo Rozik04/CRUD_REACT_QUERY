@@ -19,6 +19,7 @@ export interface NewUser {
 
 export interface NewUsers {
   id: string | number
+  createdAt?: string
   name: string
   email: string
   address: string
