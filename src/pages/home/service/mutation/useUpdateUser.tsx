@@ -1,13 +1,20 @@
 import { request } from '../../../../config/request'
 import { useMutation } from '@tanstack/react-query'
-import type { NewUser } from '../../../../types/Types'
+import type { NewUsers } from '../../../../types/Types'
 
-const UseUpdateUser = () => {
-  return (
-    useMutation({
-        mutationFn: (data:NewUser)=> request.put(`/users`, data).then((res)=> res.data)
-    })
-  )
+const useUpdateUser = () => {
+  return useMutation({
+    mutationFn: (data: NewUsers) => {
+      return request
+        .put(`/users/${data.id}`, {
+          name: data.name,
+          email: data.email,
+          address: data.address,
+          avatar: data.avatar
+        })
+        .then((res) => res.data)
+    }
+  })
 }
 
-export default (UseUpdateUser)  
+export default useUpdateUser
